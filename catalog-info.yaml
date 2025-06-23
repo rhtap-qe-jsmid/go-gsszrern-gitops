@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: go-gsszrern-gitops
+  description: This is GitOps manifest for go-gsszrern   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=go-gsszrern
+    backstage.io/kubernetes-id: go-gsszrern 
+    backstage.io/techdocs-ref: dir:.
+    dev.azure.com/project-repo: rhtap-qe-jsmid/go-gsszrern-gitops
+    dev.azure.com/project: shared-public
+    dev.azure.com/build-definition: rhtap-qe-jsmid.go-gsszrern-gitops
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:go-gsszrern
